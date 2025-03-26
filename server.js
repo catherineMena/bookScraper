@@ -9,6 +9,7 @@ app.use(express.json());
 app.use('/libros', librosRoutes);
 app.use(express.static('public'));
 
-app.listen(3000, () => {
-  console.log('Servidor corriendo en http://localhost:3000');
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Servidor corriendo en http://localhost:${port}`);
 });
