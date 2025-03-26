@@ -1,17 +1,13 @@
 const mysql = require('mysql2/promise');
 
-let connection;
+const pool = mysql.createPool({
+  host: 'mysql-db',
 
-async function conectarBD() {
-  if (!connection) {
-    connection = await mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: 'cath123',
-      database: 'libros_db'
-    });
-  }
-  return connection;
-}
 
-module.exports = conectarBD;
+  user: 'root',
+  password: 'secret123', // deja vacío si no le pusiste contraseña
+  database: 'book_scraper',
+  port: 3306
+});
+
+module.exports = () => pool;
