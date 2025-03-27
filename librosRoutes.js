@@ -5,6 +5,13 @@ const getConnection = require('./connection');
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  res.send('API de libros activa ✅');
+});
+
+
+
+
 router.get('/scrape', async (req, res) => {
   try {
     const libros = await obtenerLibros();
