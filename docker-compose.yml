@@ -14,7 +14,9 @@ services:
       - mysql-data:/var/lib/mysql
 
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
     container_name: libros-app
     restart: always
     ports:
